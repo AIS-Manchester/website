@@ -22,19 +22,19 @@
    1. Variables & Custom Properties
    ========================================================================== */
 :root {
-  /* Core palette - refined for editorial elegance */
+  /* Core palette - black and yellow */
   --black: #0f0f0f;
-  --dark-grey: #3d3d3d;
+  --dark-grey: #1a1a1a;
   --mid-grey: #717171;
   --light-grey: #e8e8e8;
   --off-white: #fafaf8;
   --cream: #f5f4f0;
   --white: #ffffff;
 
-  /* Accent - subtle warmth */
-  --accent: #8c4a3a;
-  --accent-light: rgba(140, 74, 58, 0.08);
-  --accent-hover: #a85a48;
+  /* Accent - Manchester bee yellow */
+  --accent: #f5c518;
+  --accent-light: rgba(245, 197, 24, 0.12);
+  --accent-hover: #ffd633;
 
   /* Layout */
   --max-width: 1080px;
@@ -279,7 +279,7 @@ nav {
 }
 
 .logo {
-  height: 34px;
+  height: 60px;
   width: auto;
   opacity: 0.95;
   transition:
@@ -488,18 +488,20 @@ nav {
      7. Page-specific Sections
      ========================================================================== */
 
-/* Hero - dramatic entrance */
+/* Hero - landscape layout */
 .hero {
   padding-top: 10rem;
-  padding-bottom: 6rem;
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 4rem;
+  padding-bottom: 4rem;
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  text-align: center;
 }
 
 .hero-content {
   animation: slideUp var(--duration-slow) var(--ease-out);
+  max-width: 100%;
+  width: 100%;
 }
 
 @keyframes slideUp {
@@ -514,27 +516,72 @@ nav {
 }
 
 .hero h1 {
-  margin-bottom: 1.5rem;
-  max-width: 14ch;
+  margin-bottom: 0;
+  max-width: none;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1.2;
 }
 
 .hero h1 em {
-  display: block;
+  display: inline;
   color: var(--accent);
 }
 
 .hero p {
-  max-width: 44ch;
+  max-width: 60ch;
   font-size: 0.95rem;
+  margin: 0 auto;
+}
+
+/* Skyline image section */
+.hero-skyline {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 1.5rem auto 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-skyline img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: url(#outline-filter) grayscale(100%);
+  transition: filter var(--duration-slow) var(--ease-out);
+  clip-path: inset(100% 0 0 0);
+  animation: skyline-reveal 2s var(--ease-out) forwards;
+  animation-delay: 0.5s;
+}
+
+@keyframes skyline-reveal {
+  0% {
+    clip-path: inset(100% 0 0 0);
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+.hero-skyline:hover img {
+  filter: none;
 }
 
 .hero-image {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  animation: slideUp var(--duration-slow) var(--ease-out);
-  animation-delay: 100ms;
-  animation-fill-mode: both;
+  display: none;
+}
+
+/* Coming Soon section */
+.coming-soon {
+  padding: 6rem 2rem;
+  text-align: center;
+}
+
+.coming-soon h2 {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  font-weight: 400;
+  color: var(--mid-grey);
+  font-style: italic;
 }
 
 .hero-image img,
@@ -2176,9 +2223,15 @@ footer {
 
 .footer-inner {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 3.5rem;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+}
+
+.footer-logo {
+  height: 50px;
+  width: auto;
 }
 
 .footer-legal {
@@ -2311,13 +2364,15 @@ footer {
     grid-template-columns: 1fr;
   }
 
-  .hero-image,
+  .hero-skyline {
+    margin-top: 2.5rem;
+  }
+
   .mission-image,
   .cta-image {
     justify-content: center;
   }
 
-  .hero-image img,
   .mission-image img {
     max-height: 260px;
   }
@@ -2396,12 +2451,14 @@ footer {
     padding: 2.25rem 1.5rem;
   }
 
-  .hero-image,
+  .hero-skyline {
+    margin-top: 2rem;
+  }
+
   .mission-image {
     justify-content: center;
   }
 
-  .hero-image img,
   .mission-image img {
     max-height: 220px;
   }
