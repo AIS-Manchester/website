@@ -83,8 +83,35 @@
             height="50"
           />
         </a>
+        <ul class="nav-links">
+          <li><a href="/fellowship">Fellowship</a></li>
+          <li><a href="/socials">Socials</a></li>
+          <li><a href="/about">About</a></li>
+        </ul>
+        <button class="nav-toggle" aria-label="Open menu" id="nav-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
     </nav>
+
+    <div id="mobile-nav" class="mobile-nav">
+      <button
+        class="mobile-nav-close"
+        aria-label="Close menu"
+        id="mobile-nav-close"
+      >
+        &times;
+      </button>
+      <ul>
+        <li><a href="/fellowship">Fellowship</a></li>
+        <li><a href="/socials">Socials</a></li>
+        <li><a href="/about">About</a></li>
+      </ul>
+    </div>
+
+
 
     <main>
       <section class="hero" id="main-content">
@@ -107,8 +134,22 @@
     <footer>
       <div class="footer-inner">
         <img src="/assets/logo-no-bg.png" alt="AISM" class="footer-logo" />
-        <div class="footer-legal">AI Safety Manchester</div>
+        <div class="footer-legal">
+          <span>AI Safety Manchester</span>
+          <div class = "social-icons">
+            <a href="https://instagram.com/ais_manchester" target="_blank" aria-label="Visit our Instagram">
+              <img src="/assets/instagram.png" alt="Instagram" class="social-icon" width="20" height="20" />
+            </a>
+            <a href="https://linkedin.com/company/ai-safety-manchester/" target="_blank" aria-label="Visit our LinkedIn">
+              <img src="/assets/linkedin.png" alt="LinkedIn" class="social-icon" width="20" height="20" />
+            </a>
+          </div>
+        </div>
+        
+        
         <span class="footer-copy">&copy; 2026 AISM</span>
+        
+
       </div>
     </footer>
 
