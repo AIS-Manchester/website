@@ -2257,6 +2257,22 @@ footer {
   white-space: nowrap;
 }
 
+.social-icons {
+  margin-top: 5px;
+  display: flex;
+  justify-content: center;
+  gap: 15px; 
+}
+.social-icon {
+  filter: grayscale(100%);
+  transition: filter 0.2s ease, transform 0.2s ease;
+}
+
+.social-icon:hover {
+  filter: grayscale(0%);
+  transform: scale(1.1); 
+}
+
 /* ==========================================================================
      9. Animations & Performance
      ========================================================================== */
