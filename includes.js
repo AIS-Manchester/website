@@ -21,7 +21,11 @@ document.addEventListener("DOMContentLoaded", () => {
         return response.text();
       })
       .then((data) => {
-        document.querySelector("footer").innerHTML = data;
+        const footer = document.querySelector("footer");
+        if (footer) {
+          footer.innerHTML = ""; 
+          footer.insertAdjacentHTML("beforeend", data);
+        }
       })
       .catch((error) => console.error(error));
   });
